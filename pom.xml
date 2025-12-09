@@ -12,22 +12,25 @@
     <name>MiniRedisCache</name>
     <description>A lightweight in-memory Redis-like cache with TTL support.</description>
 
-    <!-- Java Version -->
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
-    <dependencies>
+    <scm>
+        <url>https://github.com/DakhinTudu/mini-redis</url>
+        <connection>scm:git:https://github.com/DakhinTudu/mini-redis.git</connection>
+        <developerConnection>scm:git:https://github.com/DakhinTudu/mini-redis.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
-        <!-- Required for logs (optional, but useful) -->
+    <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>2.0.9</version>
         </dependency>
 
-        <!-- Spring cache abstractions (needed when integrating with Spring Boot) -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -45,7 +48,24 @@
             <artifactId>spring-core</artifactId>
             <version>6.1.2</version>
         </dependency>
-
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/DakhinTudu/mini-redis</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.1.2</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
